@@ -1,0 +1,33 @@
+{
+  "name": "mvc_design",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^5.4.20",
+    "morgan": "^1.9.1",
+    "mysql": "^2.16.0",
+    "nodemon": "^1.18.10"
+  },
+  "devDependencies": {
+    "handlebars-helper-css": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NaomiMae/mongo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NaomiMae/mongo/issues"
+  },
+  "homepage": "https://github.com/NaomiMae/mongo#readme",
+  "description": ""
+}
