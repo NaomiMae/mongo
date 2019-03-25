@@ -2,7 +2,9 @@
 
 <ul>
   {{#each articles}}
+      {{#unless saved}}
       {{> articles/article-block}}
+       {{/unless}}
   {{/each}}
 </ul>
 

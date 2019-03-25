@@ -1,12 +1,23 @@
 <li>
 	
 
-	{{!-- <button class="change-sleep" data-id="{{id}}" data-newsleep="{{sleep}}">
-		{{#if sleep}}SLEEP TIME!{{else}}WAKE UP!{{/if}}
-	</button> --}}
-{{title}}
-{{id}}
-{{link}}
-{{__v}}
+	
+
+
+{{!-- {{link}}
+{{__v}} --}}
+{{!-- {{id}} --}}
+<div class="card">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{title}}</h5>
+    <p class="card-text"> {{link}}</p>
+	<button class="btn btn-primary" href="/saved" data-id="{{id}}" data-newsleep="{{sleep}}">
+		{{#unless saved}}Save{{else}}Delete{{/unless}}
+	</button>
+  </div>
+</div>
 	{{!-- <button class="delete-cat" data-id="{{this.id}}">DELETE!</button> --}}
 </li>

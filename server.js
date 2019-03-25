@@ -7,8 +7,8 @@ var cheerio = require("cheerio");
 // Require all models
 var db = require("./models");
 
-var PORT = 3000;
-
+var PORT = process.env.PORT || 3000;
+var MONGODB = process.env.MONGODB || "mongodb://localhost/unit18Populater";
 // Initialize Express
 var app = express();
 var exphbs = require("express-handlebars");
@@ -26,7 +26,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
+mongoose.connect(MONGODB, { useNewUrlParser: true });
 
 // Routes
 app.get("/", function(req, res) {
@@ -63,6 +63,7 @@ app.get("/scrape", function(req, res) {
       result.link = $(this)
         .children("a")
         .attr("href");
+        result.saved = false;
 
       // Create a new Article using the `result` object built from scraping
       db.Article.create(result)
