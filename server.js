@@ -8,7 +8,7 @@ var cheerio = require("cheerio");
 var db = require("./models");
 
 var PORT = process.env.PORT || 3000;
-var MONGODB = process.env.MONGODB || "mongodb://localhost/unit18Populater";
+var MONGODB = process.env.MONGODB_URI || "mongodb://localhost/unit18Populater";
 // Initialize Express
 var app = express();
 var exphbs = require("express-handlebars");
