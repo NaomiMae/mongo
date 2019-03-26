@@ -47,26 +47,37 @@ app.get("/", function(req, res) {
 // A GET route for scraping the echoJS website
 app.get("/scrape", function(req, res) {
   // First, we grab the body of the html with axios
-  axios.get("http://www.echojs.com/").then(function(response) {
+  axios.get("https://www.nytimes.com").then(function(response) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(response.data);
-
+// console.log(response);
     // Now, we grab every h2 within an article tag, and do the following:
-    $("article h2").each(function(i, element) {
+    $("article").each(function(i, element) {
       // Save an empty result object
-      var result = {};
+      var results = [];
 
       // Add the text and href of every link, and save them as properties of the result object
-      result.title = $(this)
-        .children("a")
-        .text();
-      result.link = $(this)
-        .children("a")
-        .attr("href");
-        result.saved = false;
-
+      // result.title = $(this)
+      //   .children()
+      //   .text();
+      //   result.summary = $(this)
+      //   .children()
+      //   .text();
+      //   console.log("hello");
+      // result.link = $(this)
+      //   .find("a")
+      //   .attr("href");
+      var title = $(element).children().text();
+      var link = $(element).find("a").attr("href");
+      var summary = $(element).children().text();
+        // result.saved = false;
+        results.push({
+          title: title,
+          link: link,
+          summary:summary });
+          console.log(results);
       // Create a new Article using the `result` object built from scraping
-      db.Article.create(result)
+      db.Article.create(results)
         .then(function(dbArticle) {
           // View the added result in the console
           console.log(dbArticle);
