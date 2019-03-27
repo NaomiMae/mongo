@@ -30,7 +30,7 @@ mongoose.connect(MONGODB, { useNewUrlParser: true });
 
 // Routes
 app.get("/", function(req, res) {
-  db.Article.find({})
+  db.Article.find({saved:false})
     .then(function(data) {
       // If we were able to successfully find Articles, send them back to the client
       // res.json(data);
@@ -55,18 +55,6 @@ app.get("/scrape", function(req, res) {
     $("article").each(function(i, element) {
       // Save an empty result object
       var results = [];
-
-      // Add the text and href of every link, and save them as properties of the result object
-      // result.title = $(this)
-      //   .children()
-      //   .text();
-      //   result.summary = $(this)
-      //   .children()
-      //   .text();
-      //   console.log("hello");
-      // result.link = $(this)
-      //   .find("a")
-      //   .attr("href");
       var title = $(element).children().text();
       var link = $(element).find("a").attr("href");
       var summary = $(element).children().text();
@@ -106,7 +94,19 @@ app.get("/articles", function(req, res) {
       res.json(err);
     });
 });
-
+app.get("/saved", function(req, res) {
+  // Grab every document in the Articles collection
+  db.Article.find({saved:true})
+    .then(function(data) {
+      // If we were able to successfully find Articles, send them back to the client
+      // res.json(data);
+      var hbsObject = {
+        articles: data
+      };
+      console.log(hbsObject);
+      res.render("saved", hbsObject);
+    })
+});
 // Route for grabbing a specific Article by id, populate it with it's note
 app.get("/articles/:id", function(req, res) {
   // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...

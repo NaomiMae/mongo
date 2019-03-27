@@ -16,7 +16,10 @@
     <h5 class="card-title">{{title}}</h5>
     <p class="card-text"> {{summary}}</p>
     <p class="card-text"> {{link}}</p>
-	<button class="btn btn-primary" href="/saved" data-id="{{id}}" data-newsleep="{{sleep}}">
+    <a href="/saved">
+	<button class="btn btn-primary"   data-id="{{id}}" data-newsaved="{{saved}}"></a>
+
+
 		{{#unless saved}}Save{{else}}Delete{{/unless}}
 	</button>
   </div>

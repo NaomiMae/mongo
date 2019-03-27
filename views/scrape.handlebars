@@ -9,7 +9,7 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="/">Home
-          <span class="sr-only">(current)</span>
+          
         </a>
       </li>
       <li class="nav-item">
@@ -17,7 +17,7 @@
       </li>
       <li class="nav-item">
         <a class="btn btn-danger scrape-new"href="/scrape">SCRAPE NEW ARTICLES!</a>
-      
+      <span class="sr-only">(current)</span>
       </li>
       <li class="nav-item">
         <a class="btn btn-danger clear">CLEAR ARTICLES!</a>
@@ -37,31 +37,10 @@
     <p>New York Times Edition</p>
   </div>
 </div>
-<ul>
+{{!-- <ul>
   {{#each articles}}
       {{#unless saved}}
       {{> articles/article-block}}
        {{/unless}}
   {{/each}}
-</ul>
-
-{{!-- <h2>Cats that are sleepy!</h2> --}}
-
-{{!-- <ul>
-  {{#each }}
-    {{#if sleepy}}
-      {{> cats/cat-block sleep=false}}
-    {{/if}}
-  {{/each}}
 </ul> --}}
-  {{!-- <body>
-    <div id="wrapper">
-      <h1>Note Scraper</h1>
-      <h2><i>If you can do this...the homework should be no problem.</i></h2>
-      <div id="articles"></div>
-      <div id="notes"></div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="app.js"></script>
-  </body>
-</html> --}}
