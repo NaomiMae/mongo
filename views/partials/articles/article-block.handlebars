@@ -17,11 +17,7 @@
     <p class="card-text"> {{summary}}</p>
     <p class="card-text"> {{link}}</p>
     <a href="/saved">
-	<button class="btn btn-primary"   data-id="{{id}}" data-newsaved="{{saved}}"></a>
-
-
-		{{#unless saved}}Save{{else}}Delete{{/unless}}
-	</button>
+	<button class="btn btn-primary"   data-id="{{id}}" data-newsaved="{{saved}}"></a>{{#unless saved}}Save{{else}}Delete{{/unless}}</button>
   </div>
 </div>
 	{{!-- <button class="delete-cat" data-id="{{this.id}}">DELETE!</button> --}}
